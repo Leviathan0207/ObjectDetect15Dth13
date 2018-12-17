@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setMovePageCrop() {
-        // movePageCrop = new Intent(MainActivity.this, CropImageActivity.class);
+        movePageCrop = new Intent(MainActivity.this, CropImageActivity.class);
         startActivity(movePageCrop);
     }
 
