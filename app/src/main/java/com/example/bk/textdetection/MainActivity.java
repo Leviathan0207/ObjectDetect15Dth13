@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init() {
+        btnProcess = (Button) findViewById(R.id.btnProcess);
         cameraView = (SurfaceView) findViewById(R.id.srfView);
         txtView = (TextView) findViewById(R.id.textView);
     }
@@ -103,7 +104,16 @@ public class MainActivity extends AppCompatActivity {
                                     stringBuilder.append("\n");
                                 }
                                 txtView.setText(stringBuilder.toString());
-//
+                                btnProcess.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        movePageShow = new Intent(MainActivity.this, ShowDataActivity.class);
+                                        movePageShow.putExtra("sendStringToShowDataActivity", stringBuilder.toString()
+                                                .replace("\n", "")
+                                                .toLowerCase());
+                                        startActivity(movePageShow);
+                                    }
+                                });
                             }
                         });
                     }
@@ -129,5 +139,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }
