@@ -88,6 +88,15 @@ public class ShowDataActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.btn_setting) {
+            Intent intentMoveSetting = new Intent(ShowDataActivity.this, AdminActivity.class);
+            startActivity(intentMoveSetting);
+        }
+        return true;
+    }
+
     public void displayBienSo() {
         key = getDataFromMain();
         Log.d("testMessage", key);

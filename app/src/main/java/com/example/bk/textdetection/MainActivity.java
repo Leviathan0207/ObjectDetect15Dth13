@@ -140,9 +140,29 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public void setMovePageCrop() {
+        // movePageCrop = new Intent(MainActivity.this, CropImageActivity.class);
+        startActivity(movePageCrop);
+    }
+
+    private void SearchTabOpen() {
+        movePageSearch = new Intent(MainActivity.this, AdminActivity.class);
+        startActivity(movePageSearch);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.btnCamera) {
+            setMovePageCrop();
+        } else if (item.getItemId() == R.id.btnSearch)
+            SearchTabOpen();
         return true;
     }
 }
